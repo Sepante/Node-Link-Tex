@@ -1,0 +1,96 @@
+%\documentclass[a4paper,nocrop,centre,info,paper]{paper}
+\documentclass[11pt,a4paper]{article}
+%\documentclass[utf8]{frontiersSCNS}
+\usepackage{comment}
+%\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage[inline]{enumitem}
+\usepackage{subcaption}
+%\usepackage{floatrow}
+% Title Page
+\title{\textbf{Node Link Dynamics on Heterogeneous Networks}}
+%\author{Sina Sajjadi}
+\date{}
+\usepackage{mathtools}          %loads amsmath as well
+\DeclarePairedDelimiter\Floor\lfloor\rfloor
+\DeclarePairedDelimiter\Ceil\lceil\rceil
+\newcommand{\Ia}{\mathcal{I}}
+ 
+
+\begin{document}
+\maketitle
+
+
+%\section{Model}
+~\\
+$E$: Overall number of edges.\\
+$\Phi(k)$: Degree distribution.\\
+$\rho_{k,k^{'}}$: Edge degree distribution.
+%\begin{equation}
+%E = \int_{}^{ }( \rho_{k,k^{'}} ) dk^{'}
+%\end{equation}
+
+\begin{equation}
+\Phi(k) = \int_{}^{ }( \rho_{k,k^{'}} ) dk^{'}
+%\rightarrow
+%\int_{}^{ }( \rho_{k,k^{'}} ) dk^{} = 1
+\end{equation}
+
+From $k$ side:
+\begin{equation}
+\overbrace{\frac{1}{2}}^\text{two sides}
+(\underbrace{1-p}_\textrm{node-change-p}) \times (\underbrace{\rho_a(k,k^{'})}_\textrm{selection-p} )
+\end{equation}
+\begin{equation}
+%P(s=s_{i}|c=c_{j}) = \frac{ n_{s_{i} . c_{j}}}{n_{c_j}}
+\chi_{k, k^{''}} = { \rho_{a}(k,k^{''}) + \rho_{b}(k,k^{''}) + \rho_{e}(k,k^{''}) + \rho_{f}(k,k^{''})}
+\end{equation}
+
+\begin{equation}
+Density = \frac{ \rho_{e}(k,k^{''}) }
+{ \chi_{k, k^{''}}}
+\frac{k-1}{E}
+\end{equation}
+
+\begin{equation}
+\frac{d\rho_e(k,k^{''})}
+{dt}
+|{}_
+{a\rightarrow f(k,k^{'})}^{e\rightarrow d(k,k^{''})}
+= -(1-p)(k-1)
+\frac
+{\rho_a(k,k^{'})\rho_{e}(k,k^{''})}
+{2\chi_{k, k^{''}}}
+\end{equation}
+$k^{'}$ is a dummy variable.
+
+\begin{equation}
+\frac{d\rho_e(k,k^{''})}
+{dt}
+|{}_
+{a\rightarrow f}^{e\rightarrow d(k,k^{''})}
+= -(1-p)(k-1)
+\frac
+{\rho_{e}(k,k^{''})}
+{2\chi_{k, k^{''}}}
+\int_{}^{ }
+{\rho_a(k,k^{'})\Phi(k^{'})}
+dk^{'}
+\end{equation}
+
+\begin{equation}
+ \overset{(1)}{=}
+-(1-p)(k-1)
+\frac
+{\rho_{e}(k,k^{''})}
+{2\chi_{k, k^{''}}}
+\int_{}^{ }
+\int_{}^{ }
+\rho_a(k,k^{'})
+\rho_a(k^{*},k^{'})
+dk^{'}
+dk^{*}
+\end{equation}
+
+
+\end{document}
